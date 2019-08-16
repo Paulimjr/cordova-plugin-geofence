@@ -36,12 +36,10 @@
     "url": "https://github.com/cowbell/cordova-plugin-geofence/issues"
   },
   "homepage": "https://github.com/cowbell/cordova-plugin-geofence#readme",
-  "engines": [
-    {
+  "engines": {
       "name": "cordova",
       "version": ">=5.0.0"
-    }
-  ],
+    },
   "typings": "./typings/cordova-plugin-geofence.d.ts",
   "devDependencies": {
     "cordova": "^6.1.1",
