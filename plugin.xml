@@ -48,16 +48,20 @@
         <source-file src="src/android/ReceiveTransitionsIntentService.java" target-dir="src/com/cowbell/cordova/geofence" />
         <source-file src="src/android/RemoveGeofenceCommand.java" target-dir="src/com/cowbell/cordova/geofence" />
 
-        <framework src="com.google.android.gms:play-services-maps:15.0.0" />
+       <!-- <framework src="com.google.android.gms:play-services-maps:15.0.0" />
         <framework src="com.google.android.gms:play-services-location:15.0.0" />
         <framework src="com.google.code.gson:gson:2.8.5" />
-        <framework src="com.android.support:appcompat-v7:27.1.1"/>
+        <framework src="com.android.support:appcompat-v7:27.1.1"/> -->
 
         <config-file target="config.xml" parent="/*">
             <feature name="GeofencePlugin">
                 <param name="android-package" value="com.cowbell.cordova.geofence.GeofencePlugin" />
             </feature>
         </config-file>
+
+        <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+            <application android:appComponentFactory="@string/app_name"/>
+        </edit-config>
 
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <service android:name="com.cowbell.cordova.geofence.ReceiveTransitionsIntentService"
@@ -86,6 +90,8 @@
 			<uses-permission android:name="android.permission.VIBRATE" />
 			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
         </config-file>
+
+        <framework src="src/android/geofence.gradle" custom="true" type="gradleReference" />
 
     </platform>
     <!-- wp8 -->
